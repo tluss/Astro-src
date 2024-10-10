@@ -1,0 +1,108 @@
+---
+import BestLayout from "../layouts/BestLayout.astro";
+import '../styles/vignette.scss'
+---
+
+<BestLayout>
+    <h1>Browse for puzzles</h1>
+    <span id="vignette-list"> </span>
+</BestLayout>
+
+<style lang="scss">
+    h1, p{
+        margin-left: 1em;
+    }
+
+    #vignette-list{
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 2em;
+        padding-top: 2em;
+        background-color: #FFFFFF30;
+        border-radius: 1em;
+    }
+</style>
+
+<script>
+
+    
+    fetch('/assets/puzzle_list.csv')
+        .then(response => response.text())
+        .then(csvText => {
+            const rows = csvText.split('\n'); // Split by new lines
+            const resultArray = rows.map(row => row.replace('\r', '').split(',')); // Remove '\r' and split by commas
+            
+            console.log(resultArray); // Array of arrays
+        })
+        .catch(error => console.error('Error fetching the CSV file:', error));
+
+    // Function to create and append the Astro component
+    function appendComponent(name: string, thumbnailUrl: string, desc: string) {
+        // Create a new div element
+        const componentDiv = document.createElement('a');
+        componentDiv.classList.add('vignette');
+        componentDiv.href = '#';
+        // Set inner HTML using Astro component's HTML structure
+        componentDiv.innerHTML = `
+        <div>
+        <picture>
+            <img src="${thumbnailUrl}" alt="" />
+        </picture>
+        </div>
+        <h5> ${name} </h5>
+        <p class="description"> ${desc} <p>
+        `;
+
+        // Append the new component to the existing element
+        const existingElement = document.getElementById("vignette-list");
+        if (existingElement) {
+          existingElement.appendChild(componentDiv);
+        } else {
+          console.error('No element found with the class .existing-content');
+        }
+
+    }
+
+    // Call the function to append a new component with a message
+    appendComponent("ia1",
+    "/assets/puzzPics/200x200/ia1.png",
+    "The person you were before could please even the most demanding follower of Freud.");
+    appendComponent("ia2",
+    "/assets/puzzPics/200x200/ia2.png",
+    "The body of mind shot the sheriff.");
+    appendComponent("obscene control",
+    "/assets/puzzPics/200x200/noPicture.png",
+    "An old apple ever stuns the onlooker.");
+    appendComponent("panicky membership",
+    "/assets/puzzPics/200x200/noPicture.png",
+    "That stolen figurine shoots pineapples with a machinegun.");
+    appendComponent("amazing instruction",
+    "/assets/puzzPics/200x200/noPicture.png",
+    "Enqoyism has its world rocked by trees (or rocks).");
+    appendComponent("simple currency",
+    "/assets/puzzPics/200x200/noPicture.png",
+    "A shooting star welcomes spring!");
+    appendComponent("vengeful assistance",
+    "/assets/puzzPics/200x200/noPicture.png",
+    "A small mercy visits Japan in the winter.");
+    appendComponent("afraid chapter",
+    "/assets/puzzPics/200x200/noPicture.png",
+    "A small mercy would die for a grapefruit!");
+    appendComponent("pleasant enthusiasm",
+    "/assets/puzzPics/200x200/noPicture.png",
+    "A wave loudly clashing against a long shoreline lay down on the riverbed.");
+    appendComponent("confident analyst",
+    "/assets/puzzPics/200x200/noPicture.png",
+    "Abstraction wants to go to hell.");
+    appendComponent("busy movie",
+    "/assets/puzzPics/200x200/noPicture.png",
+    "Stupidity likes to have a shower in the morning.");
+    appendComponent("grateful population",
+    "/assets/puzzPics/200x200/noPicture.png",
+    "Two-finger John is a storyteller without equal.");
+    appendComponent("high-pitched cousin",
+    "/assets/puzzPics/200x200/noPicture.png",
+    "A passionate evening sat down once more.");
+
+    
+    </script>

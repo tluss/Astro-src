@@ -1,0 +1,83 @@
+---
+import WebHeader from '../components/WebHeader.astro';
+import WebFooter from '../components/WebFooter.astro';
+import SearchBar from '../components/SearchBar.astro';
+
+interface Props {
+    language?: string
+    title?: string
+}
+
+const {
+    language = "en",
+    title = "STLPuzzles"
+
+} = Astro.props;
+
+import '../styles/test.scss'
+---
+
+
+<!-- HTML 5 -->
+
+
+<!DOCTYPE html>
+<html lang={language}>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <link rel="icon" type="image/x-icon" href="/mischief_redraw.ico">
+
+</head>
+
+<body>
+    
+    <!-- HEADER -->
+    <WebHeader />
+
+    <div id="body">
+        <SearchBar />
+        <div id="content">
+            <slot />
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <WebFooter />
+
+</body>
+</html>
+
+<style lang="scss">
+
+    *{
+        padding: 0px;
+        margin: 0px;
+        border: 0px;
+    }
+
+    #content{
+        padding: 10px;
+        padding-left: 15%;
+        padding-right: 15%;
+        
+
+    }
+
+    #body{
+        background-image: url("/assets/jigsaw.png");
+        animation: bgJigScroll 7.5s linear infinite;
+        -webkit-box-shadow: inset 0px 0px 24px 20px #627A74; 
+        box-shadow: inset 0px 0px 24px 20px #627A74;
+    }
+
+    @keyframes bgJigScroll {
+    0% {
+        background-position : 0px 0px
+    }
+    100% {
+        background-position : -0px -64px
+    }
+    }
+

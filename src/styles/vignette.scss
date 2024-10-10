@@ -1,0 +1,52 @@
+
+*{
+    padding: 0px;
+    margin: 0px;
+    border: 0px;
+    text-decoration: none;
+}
+
+a.vignette>div{
+    width: min-content;
+    margin: auto;
+    -webkit-mask-image: linear-gradient(#000 50%, #00000000);
+    mask-image: linear-gradient(#000 50%, #00000000);
+    & picture>img{
+        border-radius: 0.2em;
+        
+    }
+}
+a.vignette:hover{
+    transform: scale(1.1);
+    transition-duration: 0.3s;
+    & div{
+        -webkit-mask-image: none;
+        mask-image: none;
+    }
+
+}
+
+h5{
+    text-align: center;
+    color: #cfe9e2;
+    margin-bottom: 0.5em;
+    font-size: 1em;
+    font-weight: normal;
+}
+.vignette{
+    flex: 1 1 auto;
+    align-items: center;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+}
+.description{
+    color: #91B5AC;
+    margin: auto;
+    margin-bottom: 1em;
+    font-size: 0.8em;
+    font-weight: normal;
+    width: 200px
+    
+}

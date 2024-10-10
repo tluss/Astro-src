@@ -1,0 +1,82 @@
+---
+
+---
+
+
+<header>
+
+    <nav>
+        <span id="header">
+            <span id="header-tab-list">
+                <a class="header-tab" href="/">Home</a>
+                <a class="header-tab" href="browse">Browse</a>
+                <a class="header-tab" href="featured">Featured</a>
+
+            </span>
+        </span>
+    </nav>
+
+</header>
+
+<style lang="scss">
+
+    *{
+        padding: 0px;
+        margin: 0px;
+        border: 0px;
+        text-decoration: none; 
+    }
+
+    #header{
+        display: flex;
+        background-color: #374541;
+        flex-wrap: wrap;
+        padding-top: 1vw;
+        padding-bottom: 1vw;
+        -webkit-box-shadow: inset 0px -50px 50px -30px rgba(0,0,0,0.56); 
+        box-shadow: inset 0px -50px 50px -30px rgba(0,0,0,0.56);
+    }
+    
+
+    #header-tab-list{ 
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: 1em;
+        
+
+        a{
+            color: #91B5AC;
+            background-color: #374541;;
+            padding: 0.25em; padding-left: 1em; padding-right: 1em;
+            margin-left: 0.5em;
+            border-radius: 0.5em;
+            border: solid;
+            border-color: #627A74;
+            border-width: 0.05em;
+            background-image: url("../../public/assets/Ltiles.png");
+            animation: bgScroll 15s linear infinite;
+            font-size: 2vw;
+        }
+        a:hover{
+            color: #c7d8d4;
+            border-color: #c7d8d4;
+            
+        }
+        
+    }
+
+    @keyframes bgScroll {
+    0% {
+        background-position : 0px 0px
+    }
+    100% {
+        background-position : -32px -96px
+    }
+    }
+
+
+
+
+
+
+</style>
